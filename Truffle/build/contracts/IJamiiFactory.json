@@ -1,0 +1,2462 @@
+{
+  "contractName": "IJamiiFactory",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_voter",
+          "type": "address"
+        }
+      ],
+      "name": "assigned_voting_rights",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_ballot_type",
+          "type": "uint256"
+        }
+      ],
+      "name": "created_ballot",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "ended_ballot",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_voter_unique_id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "registered_voter",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "_tie",
+          "type": "bool"
+        }
+      ],
+      "name": "tied_ballot",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_candidate",
+          "type": "address"
+        }
+      ],
+      "name": "voted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_ballot_name",
+          "type": "string"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_ballot_candidates",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_ballot_type",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_days",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_registration_window",
+          "type": "uint256"
+        }
+      ],
+      "name": "create_ballot",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id_number",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "register_voter",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_voter",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "assign_voting_rights",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_candidate",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "vote",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "get_ballot",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "ballot_id",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "ballot_type",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "ballot_name",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "chair",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "voters_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "open_date",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_days",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "expired",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "registration_window",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "current_winner",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "tie",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct IJamiiFactory.Ballot",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_candidate_addr",
+          "type": "address"
+        }
+      ],
+      "name": "get_candidate",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "candidate_id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "ballot_id",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "candidate_address",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "vote_count",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IJamiiFactory.Candidate",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_voter_address",
+          "type": "address"
+        }
+      ],
+      "name": "get_voter",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "voter_id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "voter_address",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "ballot_id",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "registered",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "rights",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "voted",
+              "type": "bool"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "unique_voter_id",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct IJamiiFactory.Voter",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "get_candidates",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "get_voters",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "get_winner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ballot_id",
+          "type": "string"
+        }
+      ],
+      "name": "end_ballot",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_voter\",\"type\":\"address\"}],\"name\":\"assigned_voting_rights\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_ballot_type\",\"type\":\"uint256\"}],\"name\":\"created_ballot\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"ended_ballot\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_voter_unique_id\",\"type\":\"bytes32\"}],\"name\":\"registered_voter\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"_tie\",\"type\":\"bool\"}],\"name\":\"tied_ballot\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_candidate\",\"type\":\"address\"}],\"name\":\"voted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_voter\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"assign_voting_rights\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ballot_name\",\"type\":\"string\"},{\"internalType\":\"address[]\",\"name\":\"_ballot_candidates\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"_ballot_type\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_registration_window\",\"type\":\"uint256\"}],\"name\":\"create_ballot\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"end_ballot\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"get_ballot\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"ballot_id\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"ballot_type\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"ballot_name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"chair\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"voters_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"open_date\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"expired\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"registration_window\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"current_winner\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"tie\",\"type\":\"bool\"}],\"internalType\":\"struct IJamiiFactory.Ballot\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_candidate_addr\",\"type\":\"address\"}],\"name\":\"get_candidate\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"candidate_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"ballot_id\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"candidate_address\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"vote_count\",\"type\":\"uint256\"}],\"internalType\":\"struct IJamiiFactory.Candidate\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"get_candidates\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_voter_address\",\"type\":\"address\"}],\"name\":\"get_voter\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"voter_id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"voter_address\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"ballot_id\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"registered\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"rights\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"voted\",\"type\":\"bool\"},{\"internalType\":\"bytes32\",\"name\":\"unique_voter_id\",\"type\":\"bytes32\"}],\"internalType\":\"struct IJamiiFactory.Voter\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"get_voters\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"get_winner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id_number\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"register_voter\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_candidate\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_ballot_id\",\"type\":\"string\"}],\"name\":\"vote\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/interfaces/IJamiiFactory.sol\":\"IJamiiFactory\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/interfaces/IJamiiFactory.sol\":{\"keccak256\":\"0x8e963326ac277f556481f553014e7cfb21414a551fbe9e63a7ad54895ad4a1ac\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://1ab8a756112380a7d48902da58d345e2eaf4fdd4f75d971b60fb0a4f02348233\",\"dweb:/ipfs/QmNjwJ22XsitokwpKsm5exqcEzrPJjTDr7iarSQdccvpJ1\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\n\npragma solidity 0.8.9;\n\ninterface IJamiiFactory {\n    /*\n     * @dev ballot struct\n     * @arg ballot_id A unique identification number for a ballot\n     * @arg ballot_type An integer representing the type of ballot\n     * @arg ballot_name The name of the ballot\n     * @arg chair Address of the ballot creator/owner\n     * @arg ballot_candidates Array of address of ballot candidates\n     * @arg ballot_voters Registered voters of a ballot\n     * @arg open The status of the Ballot, open/closed\n     * @arg current_winner The current_winner of a Ballot\n     * @arg tie True is there is a tie between candidates False otherwise\n     */\n    struct Ballot {\n        string ballot_id;\n        uint256 ballot_type;\n        string ballot_name;\n        address chair;\n        uint256 voters_count;\n        uint256 open_date;\n        uint256 _days;\n        bool expired;\n        uint256 registration_window;\n        address current_winner;\n        bool tie;\n    }\n\n    /*\n     * @dev candidate struct\n     * @arg candidate_id A unique identification number for a candidate\n     * @arg ballot_id A unique identifier for a Ballot\n     * @arg candidate_address The address of a candidate\n     * @arg vote_count The number of votes a candidates has\n     */\n    struct Candidate {\n        uint256 candidate_id;\n        string ballot_id;\n        address candidate_address;\n        uint256 vote_count;\n        // implement other stats(party, funding)\n    }\n\n    /*\n     * @dev voter struct\n     * @arg voter_id A unique identification number for a candidate\n     * @arg voter_address The address of a voter\n     * @arg ballot_id A unique identifier for a Ballot\n     * @arg registered A bool indicating whether the candidate is registered in Ballot\n     * @arg rights A voter's voting rights in Ballot\n     * @arg voted Status of a Voter, voted/not voted\n     * @arg unique_voter_id A unique identifier for a voter in Ballot\n     */\n    struct Voter {\n        uint256 voter_id;\n        address voter_address;\n        string ballot_id;\n        bool registered;\n        bool rights;\n        bool voted;\n        bytes32 unique_voter_id;\n        // implement other stats(voting weight, tokens)\n    }\n\n    /*\n     * @dev Emitted when ballot_ownercreate a new Ballot with unique `_ballot_id`.\n     */\n    event created_ballot(uint256 _ballot_type);\n\n    /*\n     * @dev Emitted when `_voter` registers to vote.\n     */\n    event registered_voter(bytes32 _voter_unique_id);\n\n    /*\n     * @dev Emitted when `ballot_owner` assigns voting rights to `voter`.\n     */\n    event assigned_voting_rights(address _voter);\n\n    /*\n     * @dev Emitted when `_voter` casts a vote to `_candidate`.\n     */\n    event voted(address indexed _candidate);\n\n    /*\n     * @dev Emitted when there is a tie between `ballot_candidates` in a Ballot.\n     */\n    event tied_ballot(bool _tie);\n\n    /*\n     * @dev Emitted when a ballot chair ends a ballot with `_ballot_id`.\n     */\n    event ended_ballot(string _ballot_id);\n\n    /*\n     * @dev creates a new open ballot\n     * @param _ballot_name An arbitrary ballot name\n     * @param _ballot_candidates An array of address of candidates participating in the ballot\n     * @param _ballot_type The type of ballot, open, closed...\n     *\n     * @require:\n     *  - ballot_candidates.length > 1\n     *  - msg.sender == ballot_owner\n     *  - creators pay ballot_cost\n     *  - valid ballot_type <= ballot_types\n     *  - ballots.length <= limit\n     */\n    function create_ballot(\n        string memory _ballot_id,\n        string memory _ballot_name,\n        address[] memory _ballot_candidates,\n        uint256 _ballot_type,\n        uint256 _days,\n        uint256 _registration_window\n    ) external payable;\n\n    function register_voter(uint256 _id_number, string memory _ballot_id)\n        external\n        returns (bytes32);\n\n    /*\n     * @dev assign voting rights\n     * @param _voter A unique voter address\n     * @param _ballot_id The Id of a specific ballot\n     *\n     * @require:\n     *  - valid _ballot_id\n     *  - ballot is still open\n     *  - Ballots must exist\n     *  - msg.sender == ballot_owner || msg.sender == authorized\n     *  - msg.sender is registered voter in specified ballot\n     *  - ballot_type >= 1\n     *  - msg.sender == registered voter\n     *  - voting_rights == None\n     */\n    function assign_voting_rights(address _voter, string memory _ballot_id)\n        external;\n\n    /*\n     * @dev voter votes for a candidate\n     * @param _candidate The address of a candidate in the ballot\n     *\n     * @require:\n     *  - ballot_type == 0(open)\n     *  - msg.sender registered voter\n     *  - msg.sender NOT voted\n     *  - ballot is Open\n     *  - _candidate is a valid candidate\n     *  - ballot_id is valid\n     */\n    function vote(address _candidate, string memory _ballot_id) external;\n\n    /*\n     * @dev msg.sender gets a ballot.\n     * @param _ballot_id The unique Id of a Ballot!\n     *\n     * @require:\n     *\n     *\n     *\n     */\n    function get_ballot(string memory _ballot_id)\n        external\n        view\n        returns (Ballot memory);\n\n    /*\n     * @dev msg.sender gets a candidate.\n     * @param _candidate_addr The unique address of a Candidate!\n     *\n     * @require:\n     *\n     *\n     *\n     */\n    function get_candidate(address _candidate_addr)\n        external\n        view\n        returns (Candidate memory);\n\n    /*\n     * @dev msg.sender gets a voter of a ballot.\n     * @param _voter_address The unique address of a voter!\n     * @param _ballot_id The unique Id of a Ballot!\n     *\n     * @require:\n     *\n     *\n     *\n     */\n    function get_voter(address _voter_address)\n        external\n        view\n        returns (Voter memory);\n\n    /*\n     * @dev msg.sender gets candidates of a ballot.\n     * @param _ballot_id The unique Id of a Ballot!\n     *\n     * @require:\n     *\n     *\n     *\n     */\n    function get_candidates(string memory _ballot_id)\n        external\n        view\n        returns (address[] memory);\n\n    /*\n     * @dev msg.sender gets the voters of a ballot.\n     * @param _ballot_id The unique Id of a Ballot!\n     *\n     * @require:\n     *\n     *\n     *\n     */\n    function get_voters(string memory _ballot_id)\n        external\n        view\n        returns (address[] memory);\n\n    /*\n     * @dev Get the winner of a ballot\n     * @param _ballot_id A integer representing the ballot id\n     * @return An address of the winner(candidate)\n     *\n     * @require:\n     *  - valid _ballot_id\n     *  - if ballot_type >= 1, Require msg.sender == ballot_owner || authorized owner\n     *  - ballot is over(closed)\n     */\n    function get_winner(string memory _ballot_id) external returns (address);\n\n    /*\n     * @dev ends a ballot\n     * @param _ballot_id The Id of a ballot\n     *\n     * @require:\n     *  - time for ballot is up block_number >= set_block_number\n     *  - msg.sender == ballot_owner\n     */\n    function end_ballot(string memory _ballot_id) external;\n\n    // function withdraw(string memory _ballot_id, bool _destroy) external;\n}\n",
+  "sourcePath": "/home/lumunge/Documents/WEB3/EthereumBoilers/ethereum-nextjs-boilerplate/Truffle/interfaces/IJamiiFactory.sol",
+  "ast": {
+    "absolutePath": "project:/interfaces/IJamiiFactory.sol",
+    "exportedSymbols": {
+      "IJamiiFactory": [
+        3417
+      ]
+    },
+    "id": 3418,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3254,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:22:20"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IJamiiFactory",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3417,
+        "linearizedBaseContracts": [
+          3417
+        ],
+        "name": "IJamiiFactory",
+        "nameLocation": "74:13:20",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IJamiiFactory.Ballot",
+            "id": 3277,
+            "members": [
+              {
+                "constant": false,
+                "id": 3256,
+                "mutability": "mutable",
+                "name": "ballot_id",
+                "nameLocation": "711:9:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "704:16:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3255,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "704:6:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3258,
+                "mutability": "mutable",
+                "name": "ballot_type",
+                "nameLocation": "738:11:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "730:19:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3257,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "730:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3260,
+                "mutability": "mutable",
+                "name": "ballot_name",
+                "nameLocation": "766:11:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "759:18:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3259,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "759:6:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3262,
+                "mutability": "mutable",
+                "name": "chair",
+                "nameLocation": "795:5:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "787:13:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3261,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "787:7:20",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3264,
+                "mutability": "mutable",
+                "name": "voters_count",
+                "nameLocation": "818:12:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "810:20:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3263,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "810:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3266,
+                "mutability": "mutable",
+                "name": "open_date",
+                "nameLocation": "848:9:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "840:17:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3265,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "840:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3268,
+                "mutability": "mutable",
+                "name": "_days",
+                "nameLocation": "875:5:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "867:13:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3267,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "867:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3270,
+                "mutability": "mutable",
+                "name": "expired",
+                "nameLocation": "895:7:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "890:12:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3269,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "890:4:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3272,
+                "mutability": "mutable",
+                "name": "registration_window",
+                "nameLocation": "920:19:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "912:27:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3271,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "912:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3274,
+                "mutability": "mutable",
+                "name": "current_winner",
+                "nameLocation": "957:14:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "949:22:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3273,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "949:7:20",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3276,
+                "mutability": "mutable",
+                "name": "tie",
+                "nameLocation": "986:3:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3277,
+                "src": "981:8:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3275,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "981:4:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Ballot",
+            "nameLocation": "687:6:20",
+            "nodeType": "StructDefinition",
+            "scope": 3417,
+            "src": "680:316:20",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IJamiiFactory.Candidate",
+            "id": 3286,
+            "members": [
+              {
+                "constant": false,
+                "id": 3279,
+                "mutability": "mutable",
+                "name": "candidate_id",
+                "nameLocation": "1325:12:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3286,
+                "src": "1317:20:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3278,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1317:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3281,
+                "mutability": "mutable",
+                "name": "ballot_id",
+                "nameLocation": "1354:9:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3286,
+                "src": "1347:16:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3280,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1347:6:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3283,
+                "mutability": "mutable",
+                "name": "candidate_address",
+                "nameLocation": "1381:17:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3286,
+                "src": "1373:25:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3282,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1373:7:20",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3285,
+                "mutability": "mutable",
+                "name": "vote_count",
+                "nameLocation": "1416:10:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3286,
+                "src": "1408:18:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3284,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1408:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Candidate",
+            "nameLocation": "1297:9:20",
+            "nodeType": "StructDefinition",
+            "scope": 3417,
+            "src": "1290:192:20",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IJamiiFactory.Voter",
+            "id": 3301,
+            "members": [
+              {
+                "constant": false,
+                "id": 3288,
+                "mutability": "mutable",
+                "name": "voter_id",
+                "nameLocation": "1994:8:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "1986:16:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3287,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1986:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3290,
+                "mutability": "mutable",
+                "name": "voter_address",
+                "nameLocation": "2020:13:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "2012:21:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3289,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2012:7:20",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3292,
+                "mutability": "mutable",
+                "name": "ballot_id",
+                "nameLocation": "2050:9:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "2043:16:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3291,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2043:6:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3294,
+                "mutability": "mutable",
+                "name": "registered",
+                "nameLocation": "2074:10:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "2069:15:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3293,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2069:4:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3296,
+                "mutability": "mutable",
+                "name": "rights",
+                "nameLocation": "2099:6:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "2094:11:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3295,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2094:4:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3298,
+                "mutability": "mutable",
+                "name": "voted",
+                "nameLocation": "2120:5:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "2115:10:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3297,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2115:4:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3300,
+                "mutability": "mutable",
+                "name": "unique_voter_id",
+                "nameLocation": "2143:15:20",
+                "nodeType": "VariableDeclaration",
+                "scope": 3301,
+                "src": "2135:23:20",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 3299,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2135:7:20",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Voter",
+            "nameLocation": "1970:5:20",
+            "nodeType": "StructDefinition",
+            "scope": 3417,
+            "src": "1963:258:20",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 3305,
+            "name": "created_ballot",
+            "nameLocation": "2331:14:20",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3304,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3303,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_ballot_type",
+                  "nameLocation": "2354:12:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3305,
+                  "src": "2346:20:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3302,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2346:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2345:22:20"
+            },
+            "src": "2325:43:20"
+          },
+          {
+            "anonymous": false,
+            "id": 3309,
+            "name": "registered_voter",
+            "nameLocation": "2448:16:20",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3308,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3307,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_voter_unique_id",
+                  "nameLocation": "2473:16:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3309,
+                  "src": "2465:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3306,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2465:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2464:26:20"
+            },
+            "src": "2442:49:20"
+          },
+          {
+            "anonymous": false,
+            "id": 3313,
+            "name": "assigned_voting_rights",
+            "nameLocation": "2592:22:20",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3312,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3311,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_voter",
+                  "nameLocation": "2623:6:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3313,
+                  "src": "2615:14:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3310,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2615:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2614:16:20"
+            },
+            "src": "2586:45:20"
+          },
+          {
+            "anonymous": false,
+            "id": 3317,
+            "name": "voted",
+            "nameLocation": "2722:5:20",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3316,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3315,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_candidate",
+                  "nameLocation": "2744:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3317,
+                  "src": "2728:26:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3314,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2728:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2727:28:20"
+            },
+            "src": "2716:40:20"
+          },
+          {
+            "anonymous": false,
+            "id": 3321,
+            "name": "tied_ballot",
+            "nameLocation": "2864:11:20",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3320,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3319,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_tie",
+                  "nameLocation": "2881:4:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3321,
+                  "src": "2876:9:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3318,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2876:4:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2875:11:20"
+            },
+            "src": "2858:29:20"
+          },
+          {
+            "anonymous": false,
+            "id": 3325,
+            "name": "ended_ballot",
+            "nameLocation": "2987:12:20",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3324,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3323,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "3007:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3325,
+                  "src": "3000:17:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3322,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3000:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2999:19:20"
+            },
+            "src": "2981:38:20"
+          },
+          {
+            "functionSelector": "6cd5d442",
+            "id": 3341,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "create_ballot",
+            "nameLocation": "3510:13:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3339,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3327,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "3547:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3341,
+                  "src": "3533:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3326,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3533:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3329,
+                  "mutability": "mutable",
+                  "name": "_ballot_name",
+                  "nameLocation": "3581:12:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3341,
+                  "src": "3567:26:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3328,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3567:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3332,
+                  "mutability": "mutable",
+                  "name": "_ballot_candidates",
+                  "nameLocation": "3620:18:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3341,
+                  "src": "3603:35:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3330,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3603:7:20",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3331,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3603:9:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3334,
+                  "mutability": "mutable",
+                  "name": "_ballot_type",
+                  "nameLocation": "3656:12:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3341,
+                  "src": "3648:20:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3333,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3648:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3336,
+                  "mutability": "mutable",
+                  "name": "_days",
+                  "nameLocation": "3686:5:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3341,
+                  "src": "3678:13:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3335,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3678:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3338,
+                  "mutability": "mutable",
+                  "name": "_registration_window",
+                  "nameLocation": "3709:20:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3341,
+                  "src": "3701:28:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3337,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3701:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3523:212:20"
+            },
+            "returnParameters": {
+              "id": 3340,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3752:0:20"
+            },
+            "scope": 3417,
+            "src": "3501:252:20",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e8636516",
+            "id": 3350,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "register_voter",
+            "nameLocation": "3768:14:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3346,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3343,
+                  "mutability": "mutable",
+                  "name": "_id_number",
+                  "nameLocation": "3791:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3350,
+                  "src": "3783:18:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3342,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3783:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3345,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "3817:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3350,
+                  "src": "3803:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3344,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3803:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3782:46:20"
+            },
+            "returnParameters": {
+              "id": 3349,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3348,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3350,
+                  "src": "3863:7:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3347,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3863:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3862:9:20"
+            },
+            "scope": 3417,
+            "src": "3759:113:20",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "697319d7",
+            "id": 3357,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "assign_voting_rights",
+            "nameLocation": "4369:20:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3355,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3352,
+                  "mutability": "mutable",
+                  "name": "_voter",
+                  "nameLocation": "4398:6:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3357,
+                  "src": "4390:14:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3351,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4390:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3354,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "4420:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3357,
+                  "src": "4406:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3353,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4406:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4389:42:20"
+            },
+            "returnParameters": {
+              "id": 3356,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4448:0:20"
+            },
+            "scope": 3417,
+            "src": "4360:89:20",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "1bf533a4",
+            "id": 3364,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "vote",
+            "nameLocation": "4807:4:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3362,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3359,
+                  "mutability": "mutable",
+                  "name": "_candidate",
+                  "nameLocation": "4820:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3364,
+                  "src": "4812:18:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3358,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4812:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3361,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "4846:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3364,
+                  "src": "4832:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3360,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4832:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4811:46:20"
+            },
+            "returnParameters": {
+              "id": 3363,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4866:0:20"
+            },
+            "scope": 3417,
+            "src": "4798:69:20",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "3a99495e",
+            "id": 3372,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_ballot",
+            "nameLocation": "5032:10:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3367,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3366,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "5057:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3372,
+                  "src": "5043:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3365,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5043:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5042:26:20"
+            },
+            "returnParameters": {
+              "id": 3371,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3370,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3372,
+                  "src": "5116:13:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Ballot_$3277_memory_ptr",
+                    "typeString": "struct IJamiiFactory.Ballot"
+                  },
+                  "typeName": {
+                    "id": 3369,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 3368,
+                      "name": "Ballot",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3277,
+                      "src": "5116:6:20"
+                    },
+                    "referencedDeclaration": 3277,
+                    "src": "5116:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Ballot_$3277_storage_ptr",
+                      "typeString": "struct IJamiiFactory.Ballot"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5115:15:20"
+            },
+            "scope": 3417,
+            "src": "5023:108:20",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "953ef76d",
+            "id": 3380,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_candidate",
+            "nameLocation": "5312:13:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3375,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3374,
+                  "mutability": "mutable",
+                  "name": "_candidate_addr",
+                  "nameLocation": "5334:15:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3380,
+                  "src": "5326:23:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3373,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5326:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5325:25:20"
+            },
+            "returnParameters": {
+              "id": 3379,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3378,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3380,
+                  "src": "5398:16:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Candidate_$3286_memory_ptr",
+                    "typeString": "struct IJamiiFactory.Candidate"
+                  },
+                  "typeName": {
+                    "id": 3377,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 3376,
+                      "name": "Candidate",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3286,
+                      "src": "5398:9:20"
+                    },
+                    "referencedDeclaration": 3286,
+                    "src": "5398:9:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Candidate_$3286_storage_ptr",
+                      "typeString": "struct IJamiiFactory.Candidate"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5397:18:20"
+            },
+            "scope": 3417,
+            "src": "5303:113:20",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "89212d44",
+            "id": 3388,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_voter",
+            "nameLocation": "5652:9:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3383,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3382,
+                  "mutability": "mutable",
+                  "name": "_voter_address",
+                  "nameLocation": "5670:14:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3388,
+                  "src": "5662:22:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3381,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5662:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5661:24:20"
+            },
+            "returnParameters": {
+              "id": 3387,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3386,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3388,
+                  "src": "5733:12:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Voter_$3301_memory_ptr",
+                    "typeString": "struct IJamiiFactory.Voter"
+                  },
+                  "typeName": {
+                    "id": 3385,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 3384,
+                      "name": "Voter",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3301,
+                      "src": "5733:5:20"
+                    },
+                    "referencedDeclaration": 3301,
+                    "src": "5733:5:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Voter_$3301_storage_ptr",
+                      "typeString": "struct IJamiiFactory.Voter"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5732:14:20"
+            },
+            "scope": 3417,
+            "src": "5643:104:20",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f9efac79",
+            "id": 3396,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_candidates",
+            "nameLocation": "5926:14:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3391,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3390,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "5955:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3396,
+                  "src": "5941:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3389,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5941:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5940:26:20"
+            },
+            "returnParameters": {
+              "id": 3395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3394,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3396,
+                  "src": "6014:16:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3392,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6014:7:20",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3393,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6014:9:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6013:18:20"
+            },
+            "scope": 3417,
+            "src": "5917:115:20",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "143b02f2",
+            "id": 3404,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_voters",
+            "nameLocation": "6211:10:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3399,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3398,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "6236:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3404,
+                  "src": "6222:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3397,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6222:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6221:26:20"
+            },
+            "returnParameters": {
+              "id": 3403,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3402,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3404,
+                  "src": "6295:16:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3400,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6295:7:20",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3401,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6295:9:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6294:18:20"
+            },
+            "scope": 3417,
+            "src": "6202:111:20",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "16397337",
+            "id": 3411,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_winner",
+            "nameLocation": "6665:10:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3407,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3406,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "6690:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3411,
+                  "src": "6676:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3405,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6676:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6675:26:20"
+            },
+            "returnParameters": {
+              "id": 3410,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3409,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3411,
+                  "src": "6720:7:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3408,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6720:7:20",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6719:9:20"
+            },
+            "scope": 3417,
+            "src": "6656:73:20",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e812c6f4",
+            "id": 3416,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "end_ballot",
+            "nameLocation": "6955:10:20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3414,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3413,
+                  "mutability": "mutable",
+                  "name": "_ballot_id",
+                  "nameLocation": "6980:10:20",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3416,
+                  "src": "6966:24:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3412,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6966:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6965:26:20"
+            },
+            "returnParameters": {
+              "id": 3415,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7000:0:20"
+            },
+            "scope": 3417,
+            "src": "6946:55:20",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3418,
+        "src": "64:7016:20",
+        "usedErrors": []
+      }
+    ],
+    "src": "40:7041:20"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.9",
+  "updatedAt": "2022-08-23T09:13:00.540Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

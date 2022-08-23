@@ -1,0 +1,116 @@
+{
+  "contractName": "JamiiFactoryV2",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/JamiiFactoryV2.sol\":\"JamiiFactoryV2\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"keccak256\":\"0x0203dcadc5737d9ef2c211d6fa15d18ebc3b30dfa51903b64870b01a062b0b4e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6eb2fd1e9894dbe778f4b8131adecebe570689e63cf892f4e21257bfe1252497\",\"dweb:/ipfs/QmXgUGNfZvrn6N2miv3nooSs7Jm34A41qz94fu2GtDFcx8\"]},\"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol\":{\"keccak256\":\"0x611aa3f23e59cfdd1863c536776407b3e33d695152a266fa7cfb34440a29a8a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9b4b2110b7f2b3eb32951bc08046fa90feccffa594e1176cb91cdfb0e94726b4\",\"dweb:/ipfs/QmSxLwYjicf9zWFuieRc8WQwE4FisA1Um5jp1iSa731TGt\"]},\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2\",\"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"project:/contracts/JamiiBase.sol\":{\"keccak256\":\"0x1eb31fcf68cec4e4d2ec329e48a7afda66b0047ce9159ab7c312a380676e0a75\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://b74e45120ebd1fd7de766ee4e28aaf5843ed4beb86fb43936d01a9be61f08201\",\"dweb:/ipfs/QmWz66XNfq1Yf6rx4XcLMcugCEcejAzm8SpVsDYkXeHuE4\"]},\"project:/contracts/JamiiFactoryV2.sol\":{\"keccak256\":\"0x73ada0eaccbb704a0bf75936d0b71f91584d2fcf6557295e92e7c00db5f3683d\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://d17be34a2a40797b113f48307e445eb8ca13a14e0af6a460e93dc82b6595b3b4\",\"dweb:/ipfs/Qme1dJBh66sLpwPX5ebwd2XsTN2pDtjAiS24YkAtgK9TMb\"]},\"project:/interfaces/IJamiiFactory.sol\":{\"keccak256\":\"0x8e963326ac277f556481f553014e7cfb21414a551fbe9e63a7ad54895ad4a1ac\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://1ab8a756112380a7d48902da58d345e2eaf4fdd4f75d971b60fb0a4f02348233\",\"dweb:/ipfs/QmNjwJ22XsitokwpKsm5exqcEzrPJjTDr7iarSQdccvpJ1\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122026172c085dd2bd8a0df46379942a575eec487fe5cf895d5a7c1545542aa00aa864736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122026172c085dd2bd8a0df46379942a575eec487fe5cf895d5a7c1545542aa00aa864736f6c63430008090033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "133:80:14:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "133:80:14:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\n\npragma solidity 0.8.9;\n\nimport \"../interfaces/IJamiiFactory.sol\";\nimport \"./JamiiBase.sol\";\n\ncontract JamiiFactoryV2 {\n    /*\n     *\n     * ## Upgrades Here\n     *\n     */\n}\n",
+  "sourcePath": "/home/lumunge/Documents/WEB3/EthereumBoilers/ethereum-nextjs-boilerplate/Truffle/contracts/JamiiFactoryV2.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/JamiiFactoryV2.sol",
+    "exportedSymbols": {
+      "AddressUpgradeable": [
+        393
+      ],
+      "Context": [
+        1250
+      ],
+      "IJamiiFactory": [
+        3417
+      ],
+      "Initializable": [
+        150
+      ],
+      "JamiiBase": [
+        1408
+      ],
+      "JamiiFactoryV2": [
+        2716
+      ],
+      "Ownable": [
+        506
+      ]
+    },
+    "id": 2717,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2713,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:22:14"
+      },
+      {
+        "absolutePath": "project:/interfaces/IJamiiFactory.sol",
+        "file": "../interfaces/IJamiiFactory.sol",
+        "id": 2714,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2717,
+        "sourceUnit": 3418,
+        "src": "64:41:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/JamiiBase.sol",
+        "file": "./JamiiBase.sol",
+        "id": 2715,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2717,
+        "sourceUnit": 1409,
+        "src": "106:25:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "JamiiFactoryV2",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2716,
+        "linearizedBaseContracts": [
+          2716
+        ],
+        "name": "JamiiFactoryV2",
+        "nameLocation": "142:14:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 2717,
+        "src": "133:80:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "40:174:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.9",
+  "updatedAt": "2022-08-23T09:13:00.273Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "jamii_ballots",
+  "version": "0.1.0",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.1",
+    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/contracts-upgradeable": "^4.7.3",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "antd": "^4.16.13",
+    "install": "^0.13.0",
+    "moralis": "^0.0.135",
+    "next": "^12.0.4",
+    "next-redux-wrapper": "^7.0.5",
+    "react": "^17.0.2",
+    "react-blockies": "^1.4.1",
+    "react-dom": "^17.0.2",
+    "react-moralis": "^0.3.0",
+    "react-redux": "^8.0.2",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "sharp": "^0.29.3",
+    "use-local-storage": "^2.3.6",
+    "uuidv4": "^6.2.13",
+    "web-vitals": "^1.0.1",
+    "web3": "^1.7.5"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^12.0.4",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.24.0",
+    "eslint-config-next": "^12.0.4",
+    "gh-pages": "^3.2.3",
+    "touch-cli": "^0.0.1",
+    "yarn": "^1.22.17"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint",
+    "prebuild": "yarn lint",
+    "build": "next build",
+    "postbuild": "yarn export",
+    "export": "next export",
+    "test": "next test",
+    "devchain": "node truffle/scripts/devChain.js",
+    "connect": "moralis-admin-cli connect-local-devchain",
+    "watch:events": "moralis-admin-cli add-contract",
+    "deploy": "node Truffle/scripts/deployContract.js",
+    "deploy:page": "cross-env-shell \"yarn build && touch out/.nojekyll && gh-pages -d out -t true\""
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
