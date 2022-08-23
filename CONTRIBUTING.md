@@ -1,15 +1,15 @@
-# Contributing to `ethereum-boilerplate`
+# Contributing to `Jamii Ballots`
 
 ## Setting up the project for debugging and contributing
 
 ### Setting up you local machine:
 
-- [Fork](https://github.com/ethereum-boilerplate/ethereum-boilerplate) this project and clone the fork on your local machine:
+- [Fork](https://github.com/lumunge/Jamii_Ballots_Moralis) this project and clone the fork on your local machine:
 
 ```sh
-git clone https://github.com/ethereum-boilerplate/ethereum-boilerplate.git
-cd ethereum-boilerplate # go into the clone directory
-npm install # install all the node dependencies
+git clone https://github.com/lumunge/Jamii_Ballots_Moralis.git
+cd Jamii_Ballots_Moralis # go into the clone directory
+yarn install # install all the node dependencies
 ```
 
 Make sure to have a ESlint and Prettier plugin installed to check for code-smells and auto-formatting.
@@ -25,8 +25,8 @@ We use GitHub issues to track public bugs. We will keep a close eye on this and 
 
 ### Coding Style
 
-Please follow the [Coding Style](https://github.com/ethereum-boilerplate/ethereum-boilerplate/blob/main/CODING_STYLE.md).
+Please follow the [Coding Style](https://github.com/lumunge/Jamii_Ballots_Moralis/blob/master/CODING_STYLE.md).
 
 ## License
 
-By contributing to the ethereum-boilerplate, you agree that your contributions will be licensed under its license.
+By contributing to the jamii ballots, you agree that your contributions will be licensed under its license.
